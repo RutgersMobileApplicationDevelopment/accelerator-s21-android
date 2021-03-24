@@ -6,12 +6,8 @@
     <data>
 
         <variable
-            name="numCorrect"
-            type="java.lang.Integer" />
-
-        <variable
-            name="problem"
-            type="com.mileskrell.quizme.QuizFragment.Problem" />
+            name="viewModel"
+            type="com.mileskrell.quizme.QuizViewModel" />
 
     </data>
 
@@ -24,7 +20,7 @@
             android:id="@+id/text_view_problem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{problem.toString()}"
+            android:text="@{viewModel.problem.toString()}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edit_text_answer"
@@ -52,6 +48,7 @@
             android:id="@+id/text_view_num_correct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/x_correct(viewModel.numCorrect)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#00aa00"
             app:layout_constraintBottom_toTopOf="@+id/text_view_problem"
@@ -59,7 +56,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:numCorrect="@{numCorrect}"
             tools:text="5 correct" />
 
         <Button
@@ -72,5 +68,17 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_num_correct" />
+
+        <TextView
+            android:id="@+id/text_view_seconds_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@{viewModel.secondsRemainingString}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_num_correct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

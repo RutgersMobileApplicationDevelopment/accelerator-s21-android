@@ -1,7 +1,7 @@
 package com.mileskrell.quizme
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -18,7 +18,10 @@ class MainActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
         navController = findNavController(R.id.nav_host_fragment)
-        setupActionBarWithNavController(navController, AppBarConfiguration(setOf(R.id.quizFragment)))
+        setupActionBarWithNavController(
+            navController,
+            AppBarConfiguration(setOf(R.id.quizFragment, R.id.scoreFragment))
+        )
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
